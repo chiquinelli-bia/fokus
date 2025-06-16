@@ -1,0 +1,12 @@
+export const html = document.querySelector('html');
+export const focoBtn = document.querySelector('.app__card-button--foco');
+export const CurtoBtn = document.querySelector('.app__card-button--curto');
+export const longoBtn = document.querySelector('.app__card-button--longo');
+export const img = document.querySelector('.app__image');
+export const titulo = document.querySelector('.app__title');
+export const btn = document.querySelectorAll('.app__card-button');
+export const inputCheckbox = document.getElementById('alternar-musica');
+export const timer = document.querySelector('#timer');
+export const startPauseBt = document.querySelector('#start-pause');
+export const startPauseBtString = document.querySelector('#start-pause span');
+export const startPauseBtImg = document.querySelector('#start-pause img');
