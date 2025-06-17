@@ -1,6 +1,6 @@
 ![Fokus – DOM na prática com JavaScript](./imagens/Front-end-Fokus%20–%20DOM%20na%20prática%20com%20JavaScript.png)
 
-#Fokus
+# Fokus
 
 Estrutura inicial do projeto criada a partir do curso "JavaScript: manipulando elementos no DOM" da Alura
 
@@ -11,18 +11,18 @@ Esse projeto é inspirado na técnica Pomodoro, que visa a concentração em tar
 ## ✔️ Técnicas e tecnologias utilizadas
 
 🧪 Tecnologias:
-- `HTML5 e CSS3` para a estrutura e estilização da interface;
-- `JavaScript` para lógica, manipulação do DOM e interação;
-- `Módulos JavaScript` (import/export) para organização do código.
+- **HTML5 e CSS3** para a estrutura e estilização da interface;
+- **JavaScript** para lógica, manipulação do DOM e interação;
+- **Módulos JavaScript** (import/export) para organização do código.
 
 ⚙️ Técnicas e Funcionalidades Aplicadas:
-- Manipulação de atributos no DOM: **getAttribute,** **setAttribute,** **hasAttribute,** **removeAttribute;**
-- Controle de classes e elementos visuais com **classList.add** e **classList.remove** e **classList.toggle;**
-- Criação de cronômetro com **setInterval()** e **clearInterval();**
-- Tratamento de eventos com **addEventListener();**
+- Manipulação de atributos no DOM: `getAttribute,` `setAttribute,` `hasAttribute,` `removeAttribute;`
+- Controle de classes e elementos visuais com `classList.add` e `classList.remove` e `classList.toggle;`
+- Criação de cronômetro com `setInterval()` e `clearInterval();`
+- Tratamento de eventos com `addEventListener();`
 - Criação de estrutura modular (arquivos separados por responsabilidade);
-- Controle de áudio com objetos **Audio();**
-- Uso de **new Date()** e **toLocaleTimeString()** para formatação de tempo.
+- Controle de áudio com objetos `Audio();`
+- Uso de `new Date()` e `toLocaleTimeString()` para formatação de tempo.
 
 ## 📁 Acesso ao projeto
 
