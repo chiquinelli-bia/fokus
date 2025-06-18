@@ -1,8 +1,3 @@
-const btnTarefa = document.querySelector('.app__button--add-task');
-const formTarefa = document.querySelector('.app__form-add-task');
-const txtArea = document.querySelector('.app__form-textarea');
-const ulTarefas = document.querySelector('.app__section-task-list');
-
 const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
 function atualizarTarefa() {
@@ -36,9 +31,16 @@ function createList(tarefa) {
   return li;
 }
 
+const btnTarefa = document.querySelector('.app__button--add-task');
+const formTarefa = document.querySelector('.app__form-add-task');
+
 btnTarefa.addEventListener('click', () => {
   formTarefa.classList.toggle('hidden');
 })
+
+const txtArea = document.querySelector('.app__form-textarea');
+const ulTarefas = document.querySelector('.app__section-task-list');
+
 formTarefa.addEventListener('submit', (evento) => {
   evento.preventDefault();
   const tarefa = {
@@ -56,3 +58,10 @@ tarefas.forEach(tarefa => {
   const elementoLi = createList(tarefa);
   ulTarefas.append(elementoLi);
 });
+
+const btnCancel = document.querySelector('.app__form-footer__button--cancel');
+
+btnCancel.addEventListener('click', () => {
+  txtArea.value = '';
+  formTarefa.classList.toggle('hidden');
+})
