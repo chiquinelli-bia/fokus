@@ -1,4 +1,4 @@
-const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
 
 function atualizarTarefa() {
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
@@ -102,3 +102,14 @@ document.addEventListener('focoFinalizado', () => {
     atualizarTarefa();
   }
 })
+
+const btnRemoverTarefasConcluidas = document.getElementById('btn-remover-concluidas');
+
+btnRemoverTarefasConcluidas.onclick = () => {
+  const completas = document.querySelectorAll('.app__section-task-list-item-complete');
+  completas.forEach(tarefa => {
+    tarefa.remove();
+  })
+  tarefas = tarefas.filter(tarefa => !tarefa.completa);
+  atualizarTarefa();
+}
