@@ -5,6 +5,7 @@ function atualizarTarefa() {
 }
 
 let tarefaSelecionada = null;
+let liTarefaSelecionada = null;
 const paragraphDescription = document.querySelector('.app__section-active-task-description');
 
 function createList(tarefa) {
@@ -40,9 +41,11 @@ function createList(tarefa) {
     if(tarefaSelecionada == tarefa) {
       paragraphDescription.textContent = '';
       tarefaSelecionada = null;
+      liTarefaSelecionada = null;
       return
     }
     tarefaSelecionada = tarefa;
+    liTarefaSelecionada = li;
     paragraphDescription.textContent = tarefa.descricao;
     li.classList.add('app__section-task-list-item-active');
   }
@@ -83,4 +86,12 @@ const btnCancel = document.querySelector('.app__form-footer__button--cancel');
 btnCancel.addEventListener('click', () => {
   txtArea.value = '';
   formTarefa.classList.toggle('hidden');
+})
+debugger
+document.addEventListener('focoFinalizado', () => {
+  if (tarefaSelecionada && liTarefaSelecionada) {
+    liTarefaSelecionada.classList.remove('app__section-task-list-item-active');
+    liTarefaSelecionada.classList.add('app__section-task-list-item-complete');
+    liTarefaSelecionada.querySelector('button').setAttribute('disabled', 'true');
+  }
 })

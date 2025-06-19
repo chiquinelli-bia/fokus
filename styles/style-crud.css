@@ -186,7 +186,9 @@
     border: 2px solid #FFF;
 }
 
-.app__section-task-list-item-complete .app__section-task-icon-status circle {
+.app__section-task-list-item-complete,
+ .app__section-task-icon-status,
+ circle {
     fill: #00F4BF;
 }
 
