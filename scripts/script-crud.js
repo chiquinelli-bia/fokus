@@ -21,7 +21,14 @@ function createList(tarefa) {
 
   const circle = svg.querySelector('circle');
   circle.addEventListener('click', () => {
-    concluirTarefa(li, tarefa);
+    if (li.classList.contains('app__section-task-list-item-complete')) {
+      li.classList.remove('app__section-task-list-item-complete');
+      tarefa.completa = false;
+      li.querySelector('button').removeAttribute('disabled');
+      atualizarTarefa();
+    } else {
+      concluirTarefa(li, tarefa);
+    }
   })
 
   btnEdit.onclick = () => {
