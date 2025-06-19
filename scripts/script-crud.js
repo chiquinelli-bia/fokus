@@ -92,7 +92,6 @@ btnCancel.addEventListener('click', () => {
   txtArea.value = '';
   formTarefa.classList.toggle('hidden');
 })
-debugger
 document.addEventListener('focoFinalizado', () => {
   if (tarefaSelecionada && liTarefaSelecionada) {
     liTarefaSelecionada.classList.remove('app__section-task-list-item-active');
@@ -105,11 +104,18 @@ document.addEventListener('focoFinalizado', () => {
 
 const btnRemoverTarefasConcluidas = document.getElementById('btn-remover-concluidas');
 
-btnRemoverTarefasConcluidas.onclick = () => {
-  const completas = document.querySelectorAll('.app__section-task-list-item-complete');
-  completas.forEach(tarefa => {
+const removerTarefas = (somenteCompletas) => {
+  debugger
+  const completas = somenteCompletas ? '.app__section-task-list-item-complete' : '.app__section-task-list-item';
+  document.querySelectorAll(completas).forEach(tarefa => {
     tarefa.remove();
   })
-  tarefas = tarefas.filter(tarefa => !tarefa.completa);
+  tarefas = somenteCompletas ? tarefas.filter(tarefa => !tarefa.completa) : [];
   atualizarTarefa();
 }
+
+btnRemoverTarefasConcluidas.onclick = () => removerTarefas(true);
+
+const btnRemoverTarefas = document.getElementById('btn-remover-todas');
+
+btnRemoverTarefas.onclick = () => removerTarefas(false);
