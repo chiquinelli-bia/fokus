@@ -34,20 +34,25 @@ function createList(tarefa) {
   btnEdit.append(img);
   li.append(svg, paragraph, btnEdit);
 
-  li.onclick = () => {
-    document.querySelectorAll('.app__section-task-list-item-active').forEach(element => {
-      element.classList.remove('app__section-task-list-item-active');
-    })
-    if(tarefaSelecionada == tarefa) {
-      paragraphDescription.textContent = '';
-      tarefaSelecionada = null;
-      liTarefaSelecionada = null;
-      return
+  if(tarefa.completa) {
+    li.classList.add('app__section-task-list-item-complete');
+    btnEdit.setAttribute('disabled', 'true');
+  } else {
+    li.onclick = () => {
+      document.querySelectorAll('.app__section-task-list-item-active').forEach(element => {
+        element.classList.remove('app__section-task-list-item-active');
+      })
+      if(tarefaSelecionada == tarefa) {
+        paragraphDescription.textContent = '';
+        tarefaSelecionada = null;
+        liTarefaSelecionada = null;
+        return
+      }
+      tarefaSelecionada = tarefa;
+      liTarefaSelecionada = li;
+      paragraphDescription.textContent = tarefa.descricao;
+      li.classList.add('app__section-task-list-item-active');
     }
-    tarefaSelecionada = tarefa;
-    liTarefaSelecionada = li;
-    paragraphDescription.textContent = tarefa.descricao;
-    li.classList.add('app__section-task-list-item-active');
   }
 
   return li;
@@ -93,5 +98,7 @@ document.addEventListener('focoFinalizado', () => {
     liTarefaSelecionada.classList.remove('app__section-task-list-item-active');
     liTarefaSelecionada.classList.add('app__section-task-list-item-complete');
     liTarefaSelecionada.querySelector('button').setAttribute('disabled', 'true');
+    tarefaSelecionada.completa = true;
+    atualizarTarefa();
   }
 })
