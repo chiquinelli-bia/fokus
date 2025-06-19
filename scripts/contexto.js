@@ -1,8 +1,7 @@
 import { btn, html, img, titulo } from "./dom.js";
 import { mostrarTempo } from './timer.js';
 export const TEMPOS = {
-  // foco: 1500,
-  foco: 30,
+  foco: 1500,
   'descanso-curto': 300,
   'descanso-longo': 900
 };
