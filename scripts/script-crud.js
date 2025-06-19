@@ -19,6 +19,11 @@ function createList(tarefa) {
   const btnEdit = document.createElement('button');
   btnEdit.classList.add('app_button-edit')
 
+  const circle = svg.querySelector('circle');
+  circle.addEventListener('click', () => {
+    concluirTarefa(li, tarefa);
+  })
+
   btnEdit.onclick = () => {
     const novaDescricao = prompt('qual o novo nome do item da lista de tarefas?');
     if(novaDescricao) {
@@ -92,15 +97,27 @@ btnCancel.addEventListener('click', () => {
   txtArea.value = '';
   formTarefa.classList.toggle('hidden');
 })
+
+const btnDelet = document.querySelector('.app__form-footer__button--delete'); 
+
+btnDelet.addEventListener('click', () => {
+  txtArea.value = '';
+  formTarefa.classList.toggle('hidden');
+})
+
 document.addEventListener('focoFinalizado', () => {
   if (tarefaSelecionada && liTarefaSelecionada) {
-    liTarefaSelecionada.classList.remove('app__section-task-list-item-active');
-    liTarefaSelecionada.classList.add('app__section-task-list-item-complete');
-    liTarefaSelecionada.querySelector('button').setAttribute('disabled', 'true');
-    tarefaSelecionada.completa = true;
-    atualizarTarefa();
+    concluirTarefa();
   }
 })
+
+function concluirTarefa(li, tarefa) {
+  li.classList.remove('app__section-task-list-item-active');
+  li.classList.add('app__section-task-list-item-complete');
+  li.querySelector('button').setAttribute('disabled', 'true');
+  tarefa.completa = true;
+  atualizarTarefa();
+}
 
 const btnRemoverTarefasConcluidas = document.getElementById('btn-remover-concluidas');
 
