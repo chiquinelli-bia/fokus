@@ -1,4 +1,4 @@
-import { timer, startPauseBt, startPauseBtString, startPauseBtImg } from './dom.js';
+import { html, timer, startPauseBt, startPauseBtString, startPauseBtImg } from './dom.js';
 import { audioFinale, audioPlay, audioPause } from './som.js';
 export let tempoDecorridoEmSegundos = 1500;
 let intervaloId = null;
@@ -6,8 +6,13 @@ let intervaloId = null;
 const contagemRegressiva = () => {
     if (tempoDecorridoEmSegundos <= 0) {
         audioFinale.play()
-        zerar()
         alert('Tempo finalizado!')
+        const focoATivo = html.getAttribute('data-contexto') == 'foco';
+        if(focoATivo) {
+            const evento = new CustomEvent('focoFinalizado');
+            document.dispatchEvent(evento);
+        }
+        zerar()
         return
     }
     tempoDecorridoEmSegundos -= 1
