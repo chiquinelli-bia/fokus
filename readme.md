@@ -12,6 +12,8 @@ Este projeto, inspirado na técnica Pomodoro, que consiste em focar em uma taref
 Com funcionalidades completas de CRUD (Create, Read, Update, Delete), a aplicação permite adicionar, editar, visualizar e remover tarefas de forma prática e dinâmica.
 Além disso, utiliza manipulação do DOM, eventos personalizados e técnicas de debug para garantir uma experiência fluida. O controle de estado e a persistência dos dados são feitos via LocalStorage, mantendo as tarefas salvas mesmo após o recarregamento da página.
 
+💡 _Este projeto foi uma das etapas em que explorei diferentes formas de estruturar a organização de pastas e arquivos. Hoje sigo um padrão mais consistente, mas deixei essa versão visível para mostrar meu processo de aprendizado_
+
 ## ✔️ Técnicas e tecnologias utilizadas
 
 🧪 Tecnologias:
